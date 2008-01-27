@@ -8,6 +8,7 @@ Source0: configobj_%{version}.orig.tar.gz
 License: BSD
 Provides: python-ConfigObj = %version
 Provides: ConfigObj = %version
+BuildRequires: python-setuptools
 %py_requires
 
 %description
