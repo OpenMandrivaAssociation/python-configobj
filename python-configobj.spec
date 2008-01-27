@@ -29,7 +29,7 @@ python setup.py build
 %install
 rm -rf %buildroot
 
-python setup.py install --root=%buildroot
+python setup.py install --root=%buildroot --install-lib=%py_platsitedir
 
 %clean
 rm -rf %buildroot
