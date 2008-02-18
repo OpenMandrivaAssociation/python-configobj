@@ -1,5 +1,5 @@
 Name: python-configobj
-Summary: ConfigObj is a simple but powerful config file reader and writer
+Summary: Simple but powerful config file reader and writer
 Version: 4.4.0
 Release: %mkrel 2
 Group: Development/Python 
