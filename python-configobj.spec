@@ -1,7 +1,7 @@
 Name: python-configobj
 Summary: Simple but powerful config file reader and writer
 Version: 4.4.0
-Release: %mkrel 2
+Release: %mkrel 3
 Group: Development/Python 
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL: http://www.voidspace.org.uk/python/configobj.html
