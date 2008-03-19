@@ -1,15 +1,21 @@
-Name: python-configobj
-Summary: Simple but powerful config file reader and writer
-Version: 4.4.0
-Release: %mkrel 3
-Group: Development/Python 
+%define module configobj
+%define name   python-%{module}
+%define version 4.4.0
+%define release %mkrel 4
+
+Name: 	   %{name}
+Summary:   Simple but powerful config file reader and writer
+Version:   %{version}
+Release:   %{release}
+Group:	   Development/Python 
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-URL: http://www.voidspace.org.uk/python/configobj.html
-Source0: configobj_%{version}.orig.tar.gz
-License: BSD
-Provides: python-ConfigObj = %version
-Provides: ConfigObj = %version
+URL: 	   http://www.voidspace.org.uk/python/configobj.html
+Source0:   configobj_%{version}.orig.tar.gz
+License:   BSD
+Provides:  python-ConfigObj = %{version}
+Provides:  ConfigObj = %{version}
 BuildRequires: python-setuptools
+BuildArch: noarch
 %py_requires -d
 
 %description
@@ -17,23 +23,20 @@ ConfigObj is a simple but powerful config file reader and writer: an ini file
 round tripper. Its main feature is that it is very easy to use, with a
 straightforward programmer's interface and a simple syntax for config files.
 
-%files
-%defattr(-,root,root)
-%py_platsitedir/*
-
-#------------------------------------------------------------
-
 %prep
 %setup -q -n configobj-%version
 
 %build
-python setup.py build
+%__python setup.py build
 
 %install
 rm -rf %buildroot
 
-python setup.py install --root=%buildroot --install-lib=%py_platsitedir
+%__python setup.py install --root=%buildroot --record=INSTALLED_FILES
 
 %clean
 rm -rf %buildroot
 
+%files -f INSTALLED_FILES
+%defattr(-,root,root)
+%doc docs/* *.txt
