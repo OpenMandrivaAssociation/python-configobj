@@ -1,7 +1,7 @@
 %define module configobj
 %define name   python-%{module}
-%define version 4.4.0
-%define release %mkrel 4
+%define version 4.5.2
+%define release %mkrel 1
 
 Name: 	   %{name}
 Summary:   Simple but powerful config file reader and writer
@@ -10,7 +10,7 @@ Release:   %{release}
 Group:	   Development/Python 
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL: 	   http://www.voidspace.org.uk/python/configobj.html
-Source0:   configobj_%{version}.orig.tar.gz
+Source0:   %{module}-%{version}.zip
 License:   BSD
 Provides:  python-ConfigObj = %{version}
 Provides:  ConfigObj = %{version}
@@ -24,7 +24,7 @@ round tripper. Its main feature is that it is very easy to use, with a
 straightforward programmer's interface and a simple syntax for config files.
 
 %prep
-%setup -q -n configobj-%version
+%setup -q -n %{module}-%{version}
 
 %build
 %__python setup.py build
@@ -39,4 +39,4 @@ rm -rf %buildroot
 
 %files -f INSTALLED_FILES
 %defattr(-,root,root)
-%doc docs/* *.txt
+%doc docs/*.txt
