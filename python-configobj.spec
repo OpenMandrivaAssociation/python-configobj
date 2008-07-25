@@ -1,6 +1,6 @@
 %define module configobj
 %define name   python-%{module}
-%define version 4.5.2
+%define version 4.5.3
 %define release %mkrel 1
 
 Name: 	   %{name}
