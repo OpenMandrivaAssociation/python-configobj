@@ -1,7 +1,7 @@
-%define module configobj
-%define name   python-%{module}
-%define version 4.5.3
-%define release %mkrel 2
+%define module	configobj
+%define name	python-%{module}
+%define version 4.6.0
+%define release %mkrel 1
 
 Name: 	   %{name}
 Summary:   Simple but powerful config file reader and writer
@@ -30,13 +30,13 @@ straightforward programmer's interface and a simple syntax for config files.
 %__python setup.py build
 
 %install
-rm -rf %buildroot
+%__rm -rf %buildroot
 
 %__python setup.py install --root=%buildroot --record=INSTALLED_FILES
 
 %clean
-rm -rf %buildroot
+%__rm -rf %buildroot
 
 %files -f INSTALLED_FILES
 %defattr(-,root,root)
-%doc docs/*.txt
+%doc docs/*
