@@ -1,22 +1,22 @@
 %define module	configobj
 %define name	python-%{module}
-%define version 4.6.0
+%define version 4.7.0
 %define release %mkrel 1
 
 Name: 	   %{name}
 Summary:   Simple but powerful config file reader and writer
 Version:   %{version}
 Release:   %{release}
-Group:	   Development/Python 
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-URL: 	   http://www.voidspace.org.uk/python/configobj.html
-Source0:   %{module}-%{version}.zip
 License:   BSD
+Group:	   Development/Python 
 Provides:  python-ConfigObj = %{version}
+URL: 	   http://www.voidspace.org.uk/python/configobj.html
+Source0:   http://www.voidspace.org.uk/downloads/%{module}-%{version}.zip
 Provides:  ConfigObj = %{version}
+%py_requires -d
 BuildRequires: python-setuptools
 BuildArch: noarch
-%py_requires -d
+BuildRoot: %{_tmppath}/%{name}-%{version}
 
 %description
 ConfigObj is a simple but powerful config file reader and writer: an ini file
