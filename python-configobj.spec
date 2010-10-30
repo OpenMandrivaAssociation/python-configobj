@@ -42,5 +42,5 @@ unzip -o %SOURCE0
 %files
 %defattr(-,root,root)
 %doc docs/*
-%py_platsitedir/*py
-%py_platsitedir/*.egg-info
+%py_puresitedir/*py
+%py_puresitedir/*.egg-info
