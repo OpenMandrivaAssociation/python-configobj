@@ -1,7 +1,7 @@
 %define module	configobj
 %define name	python-%{module}
 %define version 4.7.2
-%define release %mkrel 1
+%define release %mkrel 2
 
 Name: 	   %{name}
 Summary:   Simple but powerful config file reader and writer
