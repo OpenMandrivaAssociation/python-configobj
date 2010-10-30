@@ -13,7 +13,7 @@ Provides:  python-ConfigObj = %{version}
 URL: 	   http://www.voidspace.org.uk/python/configobj.html
 Source0:   http://www.voidspace.org.uk/downloads/%{module}-%{version}.zip
 Provides:  ConfigObj = %{version}
-%py_requires -d
+BuildRequires: python-devel 
 BuildRequires: python-setuptools
 BuildArch: noarch
 BuildRoot: %{_tmppath}/%{name}-%{version}
@@ -24,19 +24,23 @@ round tripper. Its main feature is that it is very easy to use, with a
 straightforward programmer's interface and a simple syntax for config files.
 
 %prep
-%setup -q -n %{module}-%{version}
-
+# for 4.7.2, it seems the tarball is wrong 
+#%%setup -q -n %{module}-%{version}
+unzip -o %SOURCE0
+%setup -D -T -q -n %{module}-%{version}
 %build
 %__python setup.py build
 
 %install
 %__rm -rf %buildroot
 
-%__python setup.py install --root=%buildroot --record=INSTALLED_FILES
+%__python setup.py install --root=%buildroot
 
 %clean
 %__rm -rf %buildroot
 
-%files -f INSTALLED_FILES
+%files
 %defattr(-,root,root)
 %doc docs/*
+%py_platsitedir/*py
+%py_platsitedir/*.egg-info
