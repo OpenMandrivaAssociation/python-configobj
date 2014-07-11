@@ -3,7 +3,7 @@
 Summary:	Simple but powerful config file reader and writer
 Name:		python-%{module}
 Version:	4.7.2
-Release:	10
+Release:	11
 License:	BSD
 Group:		Development/Python 
 Url:		http://www.voidspace.org.uk/python/configobj.html
