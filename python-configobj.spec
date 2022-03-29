@@ -60,7 +60,7 @@ rm -Rf %{buildroot}%{py2_puresitedir}/*.pyc
 popd
 
 %files
-%{py_puresitedir}/*py*
+#{py_puresitedir}/*py*
 %{py_puresitedir}/*.egg-info
 #{py_puresitedir}/*pyc
 #{py_puresitedir}/*pyo
