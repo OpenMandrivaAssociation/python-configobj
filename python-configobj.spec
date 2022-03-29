@@ -66,7 +66,6 @@ popd
 #{py_puresitedir}/*pyo
 
 %files -n python2-configobj
-%{py2_puresitedir}/*py*
 %{py2_puresitedir}/*.egg-info
 #{py2_puresitedir}/*pyc
 #{py2_puresitedir}/*pyo
