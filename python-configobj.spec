@@ -3,14 +3,14 @@
 Summary:	Simple but powerful config file reader and writer
 Name:		python-%{module}
 Version:	5.0.6
-Release:	10
+Release:	11
 License:	BSD
 Group:		Development/Python 
 Url:		http://www.voidspace.org.uk/python/configobj.html
 Source0:	http://www.voidspace.org.uk/downloads/%{module}-%{version}.tar.gz
 BuildArch:	noarch
 BuildRequires:	python-setuptools
-BuildRequires:	pkgconfig(python3)
+BuildRequires:	pkgconfig(python2)
 BuildRequires:	python2-setuptools
 BuildRequires:	pkgconfig(python)
 
