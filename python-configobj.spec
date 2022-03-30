@@ -60,13 +60,15 @@ rm -Rf %{buildroot}%{py2_puresitedir}/*.pyc
 popd
 
 %files
-#{py_puresitedir}/*py*
 %{py_puresitedir}/*.egg-info
-#{py_puresitedir}/*pyc
-#{py_puresitedir}/*pyo
+%{py_puresitedir}/_version.py
+%{py_puresitedir}/configobj.py
+%{py_puresitedir}/validate.py
 
 %files -n python2-configobj
 %{py2_puresitedir}/*.egg-info
-#{py2_puresitedir}/*pyc
-#{py2_puresitedir}/*pyo
+%{py2_puresitedir}/_version.py*
+%{py2_puresitedir}/configobj.py*
+%{py2_puresitedir}/validate.py*
+
 
