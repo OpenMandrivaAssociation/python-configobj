@@ -2,73 +2,31 @@
 
 Summary:	Simple but powerful config file reader and writer
 Name:		python-%{module}
-Version:	5.0.6
-Release:	12
+Version:	5.0.8
+Release:	1
 License:	BSD
 Group:		Development/Python 
-Url:		http://www.voidspace.org.uk/python/configobj.html
-Source0:	http://www.voidspace.org.uk/downloads/%{module}-%{version}.tar.gz
+# Used to be (and might be again in the future)
+# http://www.voidspace.org.uk/python/configobj.html
+Url:		https://pypi.org/project/configobj/
+Source0:	https://pypi.python.org/packages/source/c/configobj/configobj-%{version}.tar.gz
 BuildArch:	noarch
 BuildRequires:	python-setuptools
-BuildRequires:	pkgconfig(python2)
-BuildRequires:	python2-setuptools
-BuildRequires:	pkgconfig(python)
+BuildRequires:	pkgconfig(python3)
+BuildSystem:	python
 
 Provides:	ConfigObj = %{version}
 Provides:	python-ConfigObj = %{version}
+
+# Not really, but let's clean up
+Obsoletes:	python2-configobj < %{EVRD}
 
 %description
 ConfigObj is a simple but powerful config file reader and writer: an ini file
 round tripper. Its main feature is that it is very easy to use, with a
 straightforward programmer's interface and a simple syntax for config files.
 
-%package -n python2-configobj
-Summary:        Simple but powerful config file reader and writer
-License:        BSD
-Group:		Development/Python
-
-%description -n python2-configobj
-ConfigObj is a simple but powerful config file reader and writer: an ini file
-round tripper. Its main feature is that it is very easy to use, with a
-straightforward programmer's interface and a simple syntax for config files.
-
-
-%prep
-%setup -qc %{module}-%{version}
-mv %{module}-%{version} python3
-cp -a python3 python2
-
-%build
-
-pushd python3
-%__python setup.py build
-popd
-
-pushd python2
-%__python2 setup.py build
-popd
-
-%install
-pushd python3
-%__python setup.py install --root=%{buildroot}
-rm -Rf %{buildroot}%{py_puresitedir}/__pycache__
-popd
-
-pushd python2
-%__python2 setup.py install --root=%{buildroot}
-rm -Rf %{buildroot}%{py2_puresitedir}/*.pyc
-popd
-
 %files
-%{py_puresitedir}/*.egg-info
-%{py_puresitedir}/_version.py
-%{py_puresitedir}/configobj.py
-%{py_puresitedir}/validate.py
-
-%files -n python2-configobj
-%{py2_puresitedir}/*.egg-info
-%{py2_puresitedir}/_version.py*
-%{py2_puresitedir}/configobj.py*
-%{py2_puresitedir}/validate.py*
-
-
+%{py_puresitedir}/*.*-info
+%{py_puresitedir}/configobj
+%{py_puresitedir}/validate
