@@ -3,7 +3,7 @@
 Summary:	Simple but powerful config file reader and writer
 Name:		python-%{module}
 Version:	5.0.9
-Release:	2
+Release:	3
 License:	BSD
 Group:		Development/Python 
 # Used to be (and might be again in the future)
